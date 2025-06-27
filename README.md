@@ -12,6 +12,10 @@
         </tr>
     </table>
 
+
+https://github.com/user-attachments/assets/4ce8764a-3c6f-42f7-b535-444f8efa856b
+
+
 <h2>Players</h2>
       <table style="border-collapse: collapse; width: 800px; margin: 0 auto;">
         <tr>
