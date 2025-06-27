@@ -1,0 +1,272 @@
+body {
+  margin: 0;
+  background-image: url("animated_race_track.gif");
+  background-repeat: repeat-y;
+  background-size: cover;
+  animation: scrollBackground 5s linear infinite;
+  color: white;
+  font-family: monospace;
+  padding: 2rem;
+  height: 100vh;
+  overflow: hidden;
+  overflow-y: auto;
+}
+
+h1 {
+  color: #ffcc00;
+}
+
+.box-character {
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 10px;
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#track {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.personagem {
+  width: 100px;
+  height: 100px;
+  border: 2px solid white;
+  background-color: transparent;
+  z-index: 2;
+  transition: border 0.2s;
+}
+
+.personagem:hover {
+  transform: scale(1.1);
+  border: 2px solid yellow;
+}
+
+.personagem.selecionado {
+  border: 3px solid lime;
+  box-shadow: 0 0 10px lime;
+}
+
+.personagem.selecionado.inimigo {
+  border: 3px solid red;
+  box-shadow: 0 0 10px red;
+}
+
+#player-select,
+#enemy-select {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+#tutorial {
+  background-color: rgba(73, 73, 73, 0.73);
+  padding: 1rem;
+  border-radius: 10px;
+  color: white;
+}
+
+.volume-btn {
+  display: block;
+  margin: 2rem auto;
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  background-color: #e60012;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.3s ease;
+}
+
+.volume-btn:hover {
+  background-color: #b3000e;
+}
+
+.start-btn {
+  display: block;
+  margin: 2rem auto;
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  background-color: rgb(2, 78, 72);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.3s ease;
+}
+
+.start-btn:hover {
+  background-color: rgb(6, 90, 80);
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8); /* fundo escuro semi-transparente */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Caixa de conteúdo */
+.modal-content {
+  background: #fff3cd; /* amarelo claro */
+  border: 4px solid #facc15; /* amarelo intenso */
+  border-radius: 20px;
+  padding: 2rem;
+  width: 90%;
+  max-width: 500px;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 0 20px #facc15;
+  animation: popupBounce 0.4s ease;
+}
+
+@keyframes popupBounce {
+  0% {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.close-button {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #333;
+}
+
+#round-result-title,
+#modal-title {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: #e11d48; /* vermelho vibrante */
+  font-weight: bold;
+  text-shadow: 1px 1px 0 #fff;
+}
+
+#modal-subtitle {
+  font-size: 1rem;
+  color: #333;
+  margin-top: 1rem;
+}
+
+.modal-image-container {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+/* Imagens dos personagens */
+.modal-image-container img {
+  width: 120px;
+  height: auto;
+  border-radius: 12px;
+  border: 3px solid #facc15;
+  box-shadow: 0 0 10px #facc15;
+  transition: transform 0.2s;
+}
+
+.modal-image-container img:hover {
+  transform: scale(1.05);
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal.hidden {
+  display: none;
+}
+
+.modal-content {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  text-align: center;
+  width: 90%;
+  max-width: 500px;
+}
+
+#round-result-modal {
+  background-color: #1e1e1e; /* fundo escuro */
+  color: #ffffff; /* texto claro */
+  padding: 2rem;
+  border-radius: 10px;
+  max-width: 500px;
+  margin: 5rem auto;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+  text-align: center;
+}
+
+#round-result-modal p {
+  color: #000;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+#round-result-modal .dado {
+  color: #38bdf8; /* azul claro */
+  font-weight: bold;
+}
+
+#round-result-modal .atributo {
+  color: #facc15;
+  font-weight: bold;
+}
+
+#round-result-modal .nome-atributo {
+  color: #a855f7; /* roxo */
+}
+
+#round-result-modal .total {
+  color: #22c55e; /* verde */
+  font-weight: bold;
+}
+
+#close-round-modal {
+  background-color: #e11d48;
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 1rem;
+  font-weight: bold;
+}
